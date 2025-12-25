@@ -1,0 +1,15 @@
+# Python
+backend/venv/
+backend/__pycache__/
+backend/uploads/
+
+# Node
+frontend/node_modules/
+
+# Model (optional if file is big)
+backend/model/*.h5
+
+# System
+.DS_Store
+.env
+node_modules
