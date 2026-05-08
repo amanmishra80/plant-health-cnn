@@ -5,17 +5,23 @@ from tensorflow.keras.preprocessing import image
 
 MODEL_PATH = os.path.join("model", "plant_model.h5")
 
-# Load trained model
-model = load_model(MODEL_PATH)
+model = None
 
-# IMPORTANT: Order MUST match training folders
 CLASS_NAMES = [
     "Tomato Early Blight",
     "Tomato Late Blight",
     "Tomato Healthy"
 ]
 
+def get_model():
+    global model
+    if model is None:
+        model = load_model(MODEL_PATH)
+    return model
+
 def predict_disease(img_path):
+    model = get_model()
+
     img = image.load_img(img_path, target_size=(224, 224))
     img_array = image.img_to_array(img)
     img_array = img_array / 255.0
