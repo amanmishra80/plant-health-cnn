@@ -56,6 +56,10 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 def home():
     return jsonify({"message": "Flask backend is running"})
 
+@app.route("/")
+def home():
+    return "Plant Health Backend Running Successfully"
+
 @app.route("/predict", methods=["POST"])
 def predict():
     if "image" not in request.files:
