@@ -25,7 +25,7 @@ function App() {
     formData.append("image", image);
 
     try {
-      const res = await fetch("http://localhost:8000/predict", {
+      const res = await fetch("https://plant-health-cnn-production.up.railway.app/predict", {
         method: "POST",
         body: formData
       });
